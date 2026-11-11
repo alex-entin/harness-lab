@@ -1,0 +1,5 @@
+service:
+  name: se_lab_service
+  identifier: se_lab_service
+  orgIdentifier: default
+  projectIdentifier: AlexEntin
