@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_alex_entin_harness_lab_1794424951211-pr-trigger-input-set
+  identifier: Build_alex_entin_harness_lab_1794424951211prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: AlexEntin
+  pipeline:
+    identifier: Build_alex_entin_harness_lab_1794424951211
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
