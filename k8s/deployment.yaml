@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: harness-candidate-lab
+  labels:
+    app: harness-candidate-lab
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: harness-candidate-lab
+  template:
+    metadata:
+      labels:
+        app: harness-candidate-lab
+    spec:
+      containers:
+        - name: app
+          # Replace DOCKERHUB_USER with your Docker Hub username.
+          image: docker.io/DOCKERHUB_USER/harness-candidate-lab:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi

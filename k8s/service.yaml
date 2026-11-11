@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: harness-candidate-lab
+spec:
+  type: ClusterIP
+  selector:
+    app: harness-candidate-lab
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
