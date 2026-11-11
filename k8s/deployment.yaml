@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: harness-candidate-lab
+  name: harness-lab
   labels:
-    app: harness-candidate-lab
+    app: harness-lab
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: harness-candidate-lab
+      app: harness-lab
   template:
     metadata:
       labels:
-        app: harness-candidate-lab
+        app: harness-lab
     spec:
       containers:
         - name: app
-          # Replace DOCKERHUB_USER with your Docker Hub username.
-          image: docker.io/DOCKERHUB_USER/harness-candidate-lab:latest
+          image: docker.io/aentin/harness-lab:latest
           imagePullPolicy: Always
           ports:
             - name: http
