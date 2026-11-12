@@ -3,3 +3,21 @@ service:
   identifier: se_lab_service
   orgIdentifier: default
   projectIdentifier: AlexEntin
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: K8sManifests
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: github_se_lab
+                  gitFetchType: Branch
+                  paths:
+                    - /k8s/
+                  branch: main
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+    type: Kubernetes
